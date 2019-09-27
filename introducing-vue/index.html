@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <input type="text" v-on:input="changeName" >
+    <h1>Hellov {{ name }}</h1>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue !'
+        },
+        methods: {
+            changeName: function(event){
+                this.name = event.target.value;
+            }
+        }
+    })
+</script>
+</body>
+</html>
