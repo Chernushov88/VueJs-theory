@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доступ к DOM элементам</title>
+
+
+</head>
+<body>
+
+<div id="app">
+    <h2 ref="heading">{{ title }} </h2>
+    <button @click="updatedFirstTitle">Updated title</button>
+    <hr ref="horline" style="height: 1px;">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    var vue1 = new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello I am Vue!'
+        },
+        methods: {
+            updatedFirstTitle: function(){
+                this.title = 'New title';
+                this.$refs.heading.style.color = "red";
+                this.$refs.horline.style.background = "blue";
+                console.log(this.$refs);
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

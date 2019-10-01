@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Модель для работы с формами</title>
+</head>
+<body>
+<div id="app">
+    <h2>
+        <a href="http://GOOGLE.COM" target="_blank" v-on:click="clickOnDefault">GOOGLE</a>
+
+    </h2>
+    <h2>модификатор отмены ствндартного пведения ссылки</h2>
+    <a href="http://GOOGLE.COM" target="_blank" v-on:click.prevent="">GOOGLE 2 prevent - VUE</a>
+    <h2 v-on:mousemove="handleMouseMove">
+        X : {{ x }} \ Y {{ y }}
+        <span v-on:mousemove.stop="" style="display: inline-block;padding: 50px; background: #ccc;"> Не изменять</span>
+    </h2>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0
+        },
+        methods: {
+            clickOnDefault: function(event) {
+                event.preventDefault();
+            },
+            handleMouseMove: function(event){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            }
+        }
+    })
+</script>
+</body>
+</html>

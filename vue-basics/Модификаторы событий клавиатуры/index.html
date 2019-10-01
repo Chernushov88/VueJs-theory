@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Модификаторы событий клавиатуры</title>
+
+</head>
+<body>
+<div id="app">
+    <h2>
+        <a href="http://GOOGLE.COM" target="_blank" v-on:click="clickOnDefault">GOOGLE</a>
+
+    </h2>
+    <h2>модификатор отмены ствндартного пведения ссылки</h2>
+    <a href="http://GOOGLE.COM" target="_blank" v-on:click.prevent="">GOOGLE 2 prevent - VUE</a>
+    <h2 v-on:mousemove="handleMouseMove">
+        X : {{ x }} \ Y {{ y }}
+        <span v-on:mousemove.stop="" style="display: inline-block;padding: 50px; background: #ccc;"> Не изменять</span>
+    </h2>
+    <hr>
+    <input type="text" v-on:keyup="alertValue" >
+    <br>
+    <hr>
+    <input type="text" v-on:keyup.enter="alertValueVue" >
+    <br>
+    <hr>
+    <input type="text" v-on:keyup.enter.space="alertValueVue" >
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0
+        },
+        methods: {
+            clickOnDefault: function(event) {
+                event.preventDefault();
+            },
+            handleMouseMove: function(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            alertValue: function(event) {
+                if (event.keyCode === 13){
+                    alert(event.target.value);
+                }
+            },
+            alertValueVue: function() {
+                alert(event.target.value);
+            }
+        }
+    })
+</script>
+</body>
+</html>

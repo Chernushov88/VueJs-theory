@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Директива v-show vs v-if</title>
+
+</head>
+<body>
+
+<div id="app">
+    <h1 v-if="isVisible">I am visible!</h1>
+    <h2 v-else>You can't see me!</h2>
+    <br>
+    <hr>
+    <h1 v-show="isVisible">I am visible!</h1>
+    <h2 v-show="!isVisible">You can't see me!</h2>
+    <br>
+    <hr>
+    <button @click="isVisible = !isVisible">Toggle</button>
+
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            isVisible: true
+        },
+        computed: {
+
+        },
+        methods: {
+
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление событий</title>
+
+</head>
+<body>
+<div id="app">
+    <h2>Счетчик = {{ counter }}</h2>
+    <button v-on:click="riseCounner">Увеличить</button>
+    <button v-on:click="minuseCounner">Уменьшить</button>
+
+    <hr>
+    <h2 v-on:mouseover="onHover" v-on:mouseout="onLeave">Счетчик2 = {{ counter2 }}</h2>
+    <button v-on:click="counter2++;">Увеличить</button>
+     <button v-on:click="counter2--;">Уменьшить</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            counter2: 0
+        },
+        methods: {
+            riseCounner: function() {
+                this.counter++;
+            },
+            minuseCounner: function() {
+                this.counter--;
+            },
+            onHover: function(event){
+                event.target.style.color = "red"
+            },
+            onLeave: function(event){
+                event.target.style.color = "#000"
+            }
+        }
+    })
+</script>
+</body>
+</html>

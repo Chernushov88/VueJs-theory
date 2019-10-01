@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оптимизация приложения с computed</title>
+
+</head>
+<body>
+
+<div id="app">
+    <h2>Counter {{ counter }} \  {{ counter2 }}</h2>
+    <h3>Result: {{ result() }}</h3>
+    <h3>Computed result: {{ computedResult }}</h3>
+
+
+    <button @click="add">Add</button>
+    <button @click="sub">Sub</button>
+    <button @click="counter2++">button Add counter2</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            counter2: 0
+        },
+        methods: {
+            add: function() {
+                this.counter++
+            },
+            sub: function() {
+                this.counter--
+            },
+            result: function() {
+                console.log('result was called')
+                return this.counter > 3 ? 'More than 3' : 'Lest then 3'
+            }
+        },
+        computed: {
+            computedResult: function() {
+                console.log('computedResult was called - 2')
+                return this.counter > 3 ? 'More than 3' : 'Lest then 3'
+            }
+        },
+    })
+
+</script>
+</body>
+</html>

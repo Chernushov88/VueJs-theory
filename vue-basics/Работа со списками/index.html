@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа со списками</title>
+
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li>{{ people[0] }}</li>
+        <li>{{ people[1] }}</li>
+        <li>{{ people[2] }}</li>
+    </ul>
+    <ul>
+        <li v-for="(personal, index) in people">{{ index + 1}} {{ personal }}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(personal, index) of people2">{{ index + 1}} - {{ personal.name }} - {{ personal.age }}</li>
+    </ul>
+
+    <hr>
+
+    <ol>
+        <li v-for="num of 3">{{ num }}</li>
+    </ol>
+
+    <hr>
+
+    <ul>
+        <li v-for="(value, key, index) in person">{{ index + 1 }} <b>{{ key }} </b> {{ value }}</li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            people:[
+                "Sergey",
+                'Vlad',
+                'Elena',
+                'Max'
+            ],
+            people2: [
+                {name: 'Sergey', age: 20},
+                {name: 'Vlad', age: 35},
+                {name: 'Elena', age: 30},
+                {name: 'Max', age: 45}
+            ],
+            person:{
+                name: 'Max',
+                age: 50,
+                job: 'frontend'
+            }
+        },
+        computed: {
+
+        },
+        methods: {
+
+        }
+    })
+
+</script>
+</body>
+</html>
