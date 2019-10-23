@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Зачем нужны компоненты</title>
+</head>
+<body>
+
+<div id="app">
+    <div style="border: 1px solid red; padding: 10px;">
+        <h2>Counter: {{ counter }}</h2>
+        <button @click="counter++">Add to counter</button>
+    </div>
+    <div style="border: 1px solid red; padding: 10px;">
+        <h2>Counter: {{ counter2 }}</h2>
+        <button @click="counter2++">Add to counter2</button>
+    </div>
+
+
+    <my-counter v-for="c in 5"></my-counter>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+
+  Vue.component('my-counter', {
+    template: `
+        <div style="border: 1px solid black;padding: 5px;margin: 5px;">
+            <h2>Counter: {{ counter }}</h2>
+            <button @click="add">Add to counter</button>
+        </div>
+    `,
+    data: function() {
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      add: function() {
+        this.counter++
+      }
+    }
+  })
+
+  new Vue({
+    el: '#app',
+    data: {
+      counter: 0,
+      counter2: 0
+    }
+  })
+
+
+</script>
+</body>
+</html>

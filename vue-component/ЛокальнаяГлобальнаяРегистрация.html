@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Локальная и глобальная регистрация</title>
+</head>
+<body>
+
+<div id="app">
+    <my-counter-global v-for="c in 2"></my-counter-global>
+</div>
+<br>
+<hr>
+<br>
+<div id="app2">
+    <my-counter-local></my-counter-local>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    Vue.component('my-counter-global', {
+        template: `
+        <div style="border: 1px solid black;padding: 5px;margin: 5px;">
+            <h2>Counter: {{ this.counter }}</h2>
+            <button @click="add">Add to counter</button>
+        </div>
+    `,
+        data: function(){
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            add: function() {
+                this.counter++
+            }
+        }
+    })
+  var component ={
+    template: `
+        <div style="border: 1px solid black;padding: 5px;margin: 5px;">
+            <h2>Counter: {{ this.counter }}</h2>
+            <button @click="add">Add to counter</button>
+        </div>
+    `,
+    data: function(){
+        return {
+            counter: 0
+        }
+    },
+    methods: {
+      add: function() {
+        this.counter++
+      }
+    }
+  }
+
+  new Vue({
+    el: '#app',
+  })
+  new Vue({
+      el: '#app2',
+      components: {
+          'my-counter-local': component
+      }
+  })
+
+</script>
+</body>
+</html>

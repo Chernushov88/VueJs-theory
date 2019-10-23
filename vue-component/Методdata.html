@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Метод data</title>
+</head>
+<body>
+
+<div id="app">
+
+
+    <my-counter v-for="c in 3"></my-counter>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    // var newObj = {
+    //     counter2: 0
+    // }
+
+  Vue.component('my-counter', {
+    template: `
+        <div style="border: 1px solid black;padding: 5px;margin: 5px;">
+            <h2>Counter: {{ this.counter }}</h2>
+            <button @click="add">Add to counter</button>
+<!--            <h2>Counter2: {{ this.counter2 }}</h2>-->
+<!--            <button @click="add2">Add to counter2</button>-->
+        </div>
+    `,
+    data: function(){
+        return {
+            counter: 0
+        }
+        // return newObj
+    },
+    methods: {
+      add: function() {
+        this.counter++
+      }
+      // add2: function() {
+      //     this.counter2++;
+      // }
+    }
+  })
+
+  new Vue({
+    el: '#app',
+    // data: {
+    //     counter: 0
+    // }
+  })
+
+
+</script>
+</body>
+</html>
