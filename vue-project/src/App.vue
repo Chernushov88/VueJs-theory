@@ -1,37 +1,30 @@
 <template>
   <div>
-    <h1>Parent: {{ carName }}</h1>
-    <app-counter></app-counter>
-    <app-car
-      :carName = "carName"
-      :carYear = "carYear"
-      :changeFunc = "changeNameToAudi"
-      @nameChenged = "carName = $event"
-      @counterUpdated = "counter = $event"
-    ></app-car>
-  </div>
+    <h2 v-colored:background.font="'red'">{{ title }}</h2>
+    <h2 v-colored:color.delay.font="'blue'">{{ title }}</h2>
 
+    <h2 v-font>Local font directive</h2>
+  </div>
 </template>
 
 <script>
-    import Car from './Car.vue'
-    import Counter from './Counter.vue'
 
     export default {
-      data () {
-        return {
-          carName: 'Ford',
-          carYear: 2019
+        data () {
+            return {
+                title: 'Hello I am Vue!'
+            }
+        },
+        directives: {
+            font: {
+                bind(el, bindings, vnode) {
+                    el.style.fontSize = '40px'
+                }
+            }
         }
-      },
-      components: {
-          'appCar': Car,
-          'appCounter': Counter
-      },
-      methods: {
-        changeNameToAudi() {
-            this.carName = 'Audi'
-        }
-      }
     }
 </script>
+
+<style scoped>
+
+</style>
