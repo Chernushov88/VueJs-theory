@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,7 @@
 </head>
 <body>
 <div id="app">
-    <h2>
-        <a v-bind:href="url">{{ url }}</a>
-    </h2>
+    <h2 v-html="link"></h2>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
@@ -17,7 +15,7 @@
     new Vue({
         el: '#app',
         data: {
-            url: 'https://www.google.com.ua'
+            link: '<a href="https://www.google.com.ua">https://www.google.com.ua</a>'
         }
     })
 </script>
