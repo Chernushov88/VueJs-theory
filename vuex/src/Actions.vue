@@ -13,7 +13,7 @@
         // this.$store.commit('changeCounter', val)
         this.$store.dispatch('asyncChangeCounter', {
           counterValue: val,
-          timeoutDelay: 1200
+          timeoutDelay: 0
         })
       }
     }
