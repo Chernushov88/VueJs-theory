@@ -1,29 +1,19 @@
 {
   "cars": [
     {
-      "name": "novinki",
-      "year": 2019,
+      "name": "Ford",
+      "year": 2018,
       "id": 1
-    },
-    {
-      "name": "chernushov88",
-      "year": 2015,
-      "id": 2
-    },
-    {
-      "name": "BMW",
-      "year": 2010,
-      "id": 3
     },
     {
       "name": "Mazda",
       "year": 2015,
-      "id": 4
+      "id": 2
     },
     {
-      "name": "ford-2",
-      "year": 2019,
-      "id": 5
+      "name": "Ford 2",
+      "year": 2010,
+      "id": 3
     }
   ]
 }
