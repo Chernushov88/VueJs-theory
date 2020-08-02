@@ -15,10 +15,7 @@
         <h2>Counter: {{ counter2 }}</h2>
         <button @click="counter2++">Add to counter2</button>
     </div>
-
-
     <my-counter v-for="c in 5"></my-counter>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -28,8 +25,8 @@
   Vue.component('my-counter', {
     template: `
         <div style="border: 1px solid black;padding: 5px;margin: 5px;">
-            <h2>Counter: {{ counter }}</h2>
-            <button @click="add">Add to counter</button>
+            <h2>Counter component: {{ counter }}</h2>
+            <button @click="add">Add to counter component</button>
         </div>
     `,
     data: function() {

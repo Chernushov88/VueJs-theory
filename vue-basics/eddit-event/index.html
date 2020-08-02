@@ -14,7 +14,7 @@
     <hr>
     <h2 v-on:mouseover="onHover" v-on:mouseout="onLeave">Счетчик2 = {{ counter2 }}</h2>
     <button v-on:click="counter2++;">Увеличить</button>
-     <button v-on:click="counter2--;">Уменьшить</button>
+     <button v-on:click="counter2 > 0 ? counter2-- : ''">Уменьшить</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
@@ -30,7 +30,7 @@
                 this.counter++;
             },
             minuseCounner: function() {
-                this.counter--;
+                this.counter> 0 ? this.counter-- : ''
             },
             onHover: function(event){
                 event.target.style.color = "red"

@@ -8,23 +8,23 @@
 <body>
 <div id="app">
     <h2>
-        <a href="http://GOOGLE.COM" target="_blank" v-on:click="clickOnDefault">GOOGLE</a>
+        <a :href="link" target="_blank" @click="clickOnDefault">GOOGLE</a>
 
     </h2>
     <h2>модификатор отмены ствндартного пведения ссылки</h2>
-    <a href="http://GOOGLE.COM" target="_blank" v-on:click.prevent="">GOOGLE 2 prevent - VUE</a>
-    <h2 v-on:mousemove="handleMouseMove">
+    <a href="http://GOOGLE.COM" target="_blank" @click.prevent="">GOOGLE 2 prevent - VUE</a>
+    <h2 @mousemove="handleMouseMove">
         X : {{ x }} \ Y {{ y }}
-        <span v-on:mousemove.stop="" style="display: inline-block;padding: 50px; background: #ccc;"> Не изменять</span>
+        <span @mousemove.stop="" style="display: inline-block;padding: 50px; background: #ccc;"> Не изменять</span>
     </h2>
     <hr>
-    <input type="text" v-on:keyup="alertValue" >
+    <input type="text" @keyup="alertValue" >
     <br>
     <hr>
-    <input type="text" v-on:keyup.enter="alertValueVue" >
+    <input type="text" @keyup.enter="alertValueVue" >
     <br>
     <hr>
-    <input type="text" v-on:keyup.enter.space="alertValueVue" >
+    <input type="text" @keyup.enter.space="alertValueVue" >
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
@@ -33,7 +33,8 @@
         el: '#app',
         data: {
             x: 0,
-            y: 0
+            y: 0,
+            link: 'http://GOOGLE.COM',
         },
         methods: {
             clickOnDefault: function(event) {

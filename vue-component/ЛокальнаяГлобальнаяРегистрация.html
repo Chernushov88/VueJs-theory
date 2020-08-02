@@ -13,7 +13,7 @@
 <hr>
 <br>
 <div id="app2">
-    <my-counter-local></my-counter-local>
+    <my-counter-local v-for="c in 3"></my-counter-local>
 </div>
 
 
@@ -21,11 +21,11 @@
 <script>
     Vue.component('my-counter-global', {
         template: `
-        <div style="border: 1px solid black;padding: 5px;margin: 5px;">
-            <h2>Counter: {{ this.counter }}</h2>
-            <button @click="add">Add to counter</button>
-        </div>
-    `,
+            <div style="border: 1px solid black;padding: 5px;margin: 5px;">
+                <h2>Counter global: {{ this.counter }}</h2>
+                <button @click="add">Add to counter</button>
+            </div>
+        `,
         data: function(){
             return {
                 counter: 0
@@ -40,7 +40,7 @@
   var component ={
     template: `
         <div style="border: 1px solid black;padding: 5px;margin: 5px;">
-            <h2>Counter: {{ this.counter }}</h2>
+            <h2>Counter local: {{ this.counter }}</h2>
             <button @click="add">Add to counter</button>
         </div>
     `,

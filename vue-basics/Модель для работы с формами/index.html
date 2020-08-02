@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ярлыки для директив</title>
+    <title>Модель для работы с формами</title>
 
 </head>
 <body>
 <div id="app">
 
-    <input type="text" @input="inputValue = event.target.value" :value="inputValue">
+    <input type="text" @input="inputValue = $event.target.value" :value="inputValue">
     <br>
-    или можем написать вместо <b> @input="inputValue = event.target.value" :value="inputValue"</b>
+    или можем написать вместо <b> @input="inputValue = $event.target.value" :value="inputValue"</b>
     <br>
     <b>v-model</b>
     <br>

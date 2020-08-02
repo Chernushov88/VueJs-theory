@@ -18,13 +18,13 @@
         <span v-on:mousemove.stop="" style="display: inline-block;padding: 50px; background: #ccc;"> Не изменять</span>
     </h2>
     <hr>
-    <input type="text" v-on:keyup="alertValue" >
+    <input type="text" v-on:keyup="alertValue($event)" >
     <br>
     <hr>
-    <input type="text" v-on:keyup.enter="alertValueVue" >
+    <input type="text" v-on:keyup.enter="alertValueVue($event)" >
     <br>
     <hr>
-    <input type="text" v-on:keyup.enter.space="alertValueVue" >
+    <input type="text" v-on:keyup.enter.space="alertValueVue($event)" >
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
@@ -47,8 +47,9 @@
                 if (event.keyCode === 13){
                     alert(event.target.value);
                 }
+                console.log(event.target.value)
             },
-            alertValueVue: function() {
+            alertValueVue: function(event) {
                 alert(event.target.value);
             }
         }
